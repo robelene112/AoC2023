@@ -19,6 +19,12 @@ streamInterface.on('line', (line) => {
     }
 })
 
+console.log(sumOfGameIds)
+
+streamInterface.on('close', () => {
+	console.log('closing file...')
+})
+
 function playGame(currentGame) {
     for (subset of currentGame) {
         const subsetArray = subset.split(',')
@@ -29,7 +35,6 @@ function playGame(currentGame) {
 
             switch (color) {
                 case 'red':
-                    console.log('case red')
                     if (digit > maxRed) {
                         console.log('digit too big')
                         return false
